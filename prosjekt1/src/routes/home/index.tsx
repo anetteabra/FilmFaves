@@ -1,6 +1,7 @@
 import styles from "./Home.module.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons/faMagnifyingGlass';
+import MovieBox from "../../components/MovieBox";
 
 const Home = () => {
 
@@ -14,8 +15,11 @@ const Home = () => {
             className={styles.search}
           />
         </div>
+        <MovieBox movieId={550} />
       </div>
     </>
+
+    
   )
   
 };
