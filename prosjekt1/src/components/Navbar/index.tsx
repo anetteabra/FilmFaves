@@ -1,9 +1,7 @@
-import { Link, NavLink} from "react-router-dom";
-import styles from "./Navbar.module.css";
-
+import { Link, NavLink } from 'react-router-dom';
+import styles from './Navbar.module.css';
 
 const Navbar = () => {
-
   return (
     <div className={styles.navbar}>
       <Link to="/" className={styles.header}>
@@ -27,8 +25,7 @@ const NavbarLink = ({
   return (
     <NavLink
       to={to}
-      className={({ isActive }) => (isActive ? styles.active : "")}
-    >
+      className={({ isActive }) => (isActive ? styles.active : '')}>
       {children}
     </NavLink>
   );
