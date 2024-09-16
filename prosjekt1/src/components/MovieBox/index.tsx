@@ -1,29 +1,21 @@
 import React from 'react';
-import { useQuery } from '@tanstack/react-query';
-import { fetchMoviePoster } from '../../api/tmdbApi';
-import { useParams } from 'react-router-dom';
+//import { useQuery } from '@tanstack/react-query';
+//import { fetchMovies } from '../../api/tmdbApi';
+//import { useParams } from 'react-router-dom';
 import styles from './MovieBox.module.css';
 
 interface MovieBoxProps {
-    movieId: number;
-    }
+    posterPath: string;
+    title: string;
+};
 
-const MovieBox: React.FC<MovieBoxProps> = ({ movieId }) => {
-  useParams<{ id: string; }>();
-
-  const { data, error, isLoading } = useQuery({
-    queryKey: ['moviePoster', movieId],
-    queryFn: () => fetchMoviePoster(movieId)
-  });
-
-  if (isLoading) return <div>Loading...</div>;
-  if (error) return <div>Error loading movie poster</div>;
+const MovieBox: React.FC<MovieBoxProps> = ({ posterPath, title }) => {
 
   return (
     <div className={styles.movieBox}>
-      <img src={`https://image.tmdb.org/t/p/w500${data.poster_path}`} alt={data.title}
+      <img src={`https://image.tmdb.org/t/p/w500${posterPath}`} alt={title}
       className={styles.moviePoster} />
-      <h2 className={styles.movieTitle}>{data.title}</h2>
+      <h2 className={styles.movieTitle}>{title}</h2>
     </div>
   );
 };
