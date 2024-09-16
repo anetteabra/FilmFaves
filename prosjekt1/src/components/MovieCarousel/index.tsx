@@ -7,6 +7,7 @@ import styles from './MovieCarousel.module.css';
 interface Movie {
   poster_path: string;
   title: string;
+  id: number;
 }
 
 const MovieCarousel: React.FC = () => {
@@ -15,6 +16,9 @@ const MovieCarousel: React.FC = () => {
     queryFn: fetchMovies,
   });
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [faves, setFaves] = useState<number[]>(() => {
+    return JSON.parse(localStorage.getItem('faves') || '[]');
+  });
 
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error loading movies</div>;
@@ -31,15 +35,28 @@ const MovieCarousel: React.FC = () => {
     );
   };
 
+  const toggleFave = (id: number) => {
+    const newFaves = faves.includes(id)
+        ? faves.filter(faveId => faveId !== id)
+        : [...faves, id];
+    setFaves(newFaves);
+    localStorage.setItem('faves', JSON.stringify(newFaves));
+  };
+
   return (
     <div className={styles.movieCarousel}>
       <button onClick={handlePrev} className={styles.carouselButton}>
         ‹
       </button>
+      {data && (
       <MovieBox
-        posterPath={data![currentIndex].poster_path}
-        title={data![currentIndex].title}
+        posterPath={data[currentIndex].poster_path}
+        title={data[currentIndex].title}
+        id={data[currentIndex].id}
+        isFave={faves.includes(data[currentIndex].id)}
+        toggleFave={() => toggleFave(data[currentIndex].id)}  
       />
+    )}
       <button onClick={handleNext} className={styles.carouselButton}>
         ›
       </button>
