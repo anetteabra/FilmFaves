@@ -46,9 +46,9 @@ export default tseslint.config({
     ...react.configs.recommended.rules,
     ...react.configs['jsx-runtime'].rules,
   },
-
 });
 ```
+
 ## Use ESLint
 
 npm run lint
@@ -60,4 +60,3 @@ npx prettier --write .
 ## Use Vitest
 
 npm run test
-
