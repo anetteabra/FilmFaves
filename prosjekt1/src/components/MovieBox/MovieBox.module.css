@@ -18,15 +18,14 @@
 }
 
 .heart {
-    cursor: pointer;
-    font-size: 24px; /* Juster størrelsen her */
-  }
-  
-  .heart.fave {
-    color: red;
-  }
-  
-  .heart.notFave {
-    color: grey;
-  }
-  
+  cursor: pointer;
+  font-size: 24px; /* Juster størrelsen her */
+}
+
+.heart.fave {
+  color: red;
+}
+
+.heart.notFave {
+  color: grey;
+}

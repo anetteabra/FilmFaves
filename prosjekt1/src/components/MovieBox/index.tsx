@@ -11,8 +11,12 @@ interface MovieBoxProps {
   toggleFave: () => void;
 }
 
-const MovieBox: React.FC<MovieBoxProps> = ({ posterPath, title, id, isFave, toggleFave }) => {
-
+const MovieBox: React.FC<MovieBoxProps> = ({
+  posterPath,
+  title,
+  isFave,
+  toggleFave,
+}) => {
   return (
     <div className={styles.movieBox}>
       <img

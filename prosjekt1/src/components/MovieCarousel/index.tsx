@@ -37,8 +37,8 @@ const MovieCarousel: React.FC = () => {
 
   const toggleFave = (id: number) => {
     const newFaves = faves.includes(id)
-        ? faves.filter(faveId => faveId !== id)
-        : [...faves, id];
+      ? faves.filter(faveId => faveId !== id)
+      : [...faves, id];
     setFaves(newFaves);
     localStorage.setItem('faves', JSON.stringify(newFaves));
   };
@@ -49,14 +49,14 @@ const MovieCarousel: React.FC = () => {
         ‹
       </button>
       {data && (
-      <MovieBox
-        posterPath={data[currentIndex].poster_path}
-        title={data[currentIndex].title}
-        id={data[currentIndex].id}
-        isFave={faves.includes(data[currentIndex].id)}
-        toggleFave={() => toggleFave(data[currentIndex].id)}  
-      />
-    )}
+        <MovieBox
+          posterPath={data[currentIndex].poster_path}
+          title={data[currentIndex].title}
+          id={data[currentIndex].id}
+          isFave={faves.includes(data[currentIndex].id)}
+          toggleFave={() => toggleFave(data[currentIndex].id)}
+        />
+      )}
       <button onClick={handleNext} className={styles.carouselButton}>
         ›
       </button>
