@@ -5,16 +5,18 @@ import React from 'react';
 import styles from './MovieBox.module.css';
 
 interface MovieBoxProps {
-    posterPath: string;
-    title: string;
-};
+  posterPath: string;
+  title: string;
+}
 
 const MovieBox: React.FC<MovieBoxProps> = ({ posterPath, title }) => {
-
   return (
     <div className={styles.movieBox}>
-      <img src={`https://image.tmdb.org/t/p/w500${posterPath}`} alt={title}
-      className={styles.moviePoster} />
+      <img
+        src={`https://image.tmdb.org/t/p/w500${posterPath}`}
+        alt={title}
+        className={styles.moviePoster}
+      />
       <h2 className={styles.movieTitle}>{title}</h2>
     </div>
   );

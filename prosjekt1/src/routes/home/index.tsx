@@ -1,7 +1,7 @@
 import styles from './Home.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons/faMagnifyingGlass';
-import MovieCarousel from "../../components/MovieCarousel";
+import MovieCarousel from '../../components/MovieCarousel';
 
 const Home = () => {
   return (
