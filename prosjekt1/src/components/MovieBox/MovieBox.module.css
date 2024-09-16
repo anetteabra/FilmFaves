@@ -1,0 +1,18 @@
+.movieBox {
+  width: 250px;
+  margin: 10px auto;
+  padding: 15px;
+  border-radius: 8px; /* Gjør hjørnene avrundet */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Legg til en skygge */
+  text-align: center; /* Sentrer teksten */
+}
+
+.moviePoster {
+  width: 100%; /* Gjør bildet responsivt */
+  border-radius: 4px;
+}
+
+.movieTitle {
+  font-size: 1.5em;
+  margin-top: 10px;
+}
