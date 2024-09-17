@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom'; // Import useNavigate
 interface Movie {
   poster_path: string;
   title: string;
+  id: string;
 }
 
 const MovieCarousel: React.FC = () => {
@@ -35,9 +36,9 @@ const MovieCarousel: React.FC = () => {
     );
   };
 
-  const handleMovieClick = () => { // later: (movie: Movie) =>d
+  const handleMovieClick = (movie: Movie) => { // 
     // Use navigate to go to the movie details page
-    navigate('/movie'); // No ID or other dynamic params
+    navigate(`/movie/${movie.id}`); 
   };
 
   return (
@@ -48,7 +49,7 @@ const MovieCarousel: React.FC = () => {
       <MovieBox
         posterPath={data![currentIndex].poster_path}
         title={data![currentIndex].title}
-        onClick={handleMovieClick} // Pass the onClick - later: handleMovieClick(data![currentIndex])
+        onClick={() => handleMovieClick(data![currentIndex])} // Pass the onClick
       />
       <button onClick={handleNext} className={styles.carouselButton}>
         ›
