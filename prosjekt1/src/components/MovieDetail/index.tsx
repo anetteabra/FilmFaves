@@ -57,7 +57,6 @@ const MovieDetail: React.FC = () => {
       <p><strong>Release Date:</strong> {movie.release_date}</p>
       <p><strong>Rating:</strong> {movie.vote_average}</p>
       <p><strong>Genres:</strong> {genres}</p>
-      <p><strong>Duration:</strong> {movie.runtime} minutes</p>
       {/* Add more details as needed */}
     </div>
   );
