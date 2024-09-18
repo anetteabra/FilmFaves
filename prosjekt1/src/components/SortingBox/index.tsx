@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import styles from './SortingBox.module.css';
 
@@ -27,7 +26,11 @@ const SortingBox: React.FC<SortingBoxProps> = ({ onSortChange }) => {
       <label htmlFor="sortOptions" className={styles.sortLabel}>
         Sort by...
       </label>
-      <select id="sortOptions" className={styles.hiddenSelect} value={sortOption} onChange={handleSortChange}>
+      <select
+        id="sortOptions"
+        className={styles.hiddenSelect}
+        value={sortOption}
+        onChange={handleSortChange}>
         <option value="rating">Rating</option>
         <option value="carousel">Carousel</option>
       </select>
@@ -36,4 +39,3 @@ const SortingBox: React.FC<SortingBoxProps> = ({ onSortChange }) => {
 };
 
 export default SortingBox;
-
