@@ -15,14 +15,17 @@ interface MovieBoxProps {
 
 const MovieBox: React.FC<MovieBoxProps> = ({
   posterPath,
-  title, 
+  title,
   onClick,
   isFave,
   toggleFave,
   voteAverage,
 }) => {
   return (
-    <div onClick={onClick} style={{ cursor: 'pointer' }} className={styles.movieBox}>
+    <div
+      onClick={onClick}
+      style={{ cursor: 'pointer' }}
+      className={styles.movieBox}>
       <img
         src={`https://image.tmdb.org/t/p/w500${posterPath}`}
         alt={title}

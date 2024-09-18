@@ -21,7 +21,7 @@ const MovieCarousel: React.FC = () => {
   const [faves, setFaves] = useState<number[]>(() => {
     return JSON.parse(localStorage.getItem('faves') || '[]');
   });
-  
+
   // Create navigate function using useNavigate
   const navigate = useNavigate();
 
@@ -48,9 +48,10 @@ const MovieCarousel: React.FC = () => {
     localStorage.setItem('faves', JSON.stringify(newFaves));
   };
 
-  const handleMovieClick = (movie: Movie) => { // 
+  const handleMovieClick = (movie: Movie) => {
+    //
     // Use navigate to go to the movie details page
-    navigate(`/movie/${movie.id}`); 
+    navigate(`/movie/${movie.id}`);
   };
 
   return (
@@ -67,7 +68,7 @@ const MovieCarousel: React.FC = () => {
           toggleFave={() => toggleFave(data[currentIndex].id)}
           voteAverage={data![currentIndex].vote_average}
           onClick={() => handleMovieClick(data![currentIndex])} // Pass the onClick
-      />
+        />
       )}
       <button onClick={handleNext} className={styles.carouselButton}>
         ›

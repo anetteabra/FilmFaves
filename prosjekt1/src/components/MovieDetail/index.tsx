@@ -35,14 +35,16 @@ const MovieDetail: React.FC = () => {
   });
 
   // Find the specific movie by ID
-  const movie = data?.find((movie) => movie.id.toString() === id);
+  const movie = data?.find(movie => movie.id.toString() === id);
 
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error loading movies</div>;
   if (!movie) return <div>Movie not found</div>;
 
   // Convert genre IDs to names
-  const genres = movie.genre_ids.map(id => genreNames[id] || 'Unknown').join(', ');
+  const genres = movie.genre_ids
+    .map(id => genreNames[id] || 'Unknown')
+    .join(', ');
 
   // Display movie details
   return (
@@ -53,10 +55,18 @@ const MovieDetail: React.FC = () => {
         className={styles.moviePoster}
       />
       <h1 className={styles.movieTitle}>{movie.title}</h1>
-      <p><strong>Overview:</strong> {movie.overview}</p>
-      <p><strong>Release Date:</strong> {movie.release_date}</p>
-      <p><strong>Rating:</strong> {movie.vote_average}</p>
-      <p><strong>Genres:</strong> {genres}</p>
+      <p>
+        <strong>Overview:</strong> {movie.overview}
+      </p>
+      <p>
+        <strong>Release Date:</strong> {movie.release_date}
+      </p>
+      <p>
+        <strong>Rating:</strong> {movie.vote_average}
+      </p>
+      <p>
+        <strong>Genres:</strong> {genres}
+      </p>
       {/* Add more details as needed */}
     </div>
   );
