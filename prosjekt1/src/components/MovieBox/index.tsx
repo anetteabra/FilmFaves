@@ -9,6 +9,7 @@ interface MovieBoxProps {
   id: number;
   isFave: boolean;
   toggleFave: () => void;
+  voteAverage: number;
 }
 
 const MovieBox: React.FC<MovieBoxProps> = ({
@@ -16,6 +17,7 @@ const MovieBox: React.FC<MovieBoxProps> = ({
   title,
   isFave,
   toggleFave,
+  voteAverage,
 }) => {
   return (
     <div className={styles.movieBox}>
@@ -24,7 +26,8 @@ const MovieBox: React.FC<MovieBoxProps> = ({
         alt={title}
         className={styles.moviePoster}
       />
-      <h2 className={styles.movieTitle}>{title}</h2>
+      {/* <h2 className={styles.movieTitle}>{title}</h2> */}
+      <h2 className={styles.movieTitle}>Rating: {voteAverage.toFixed(1)}/10</h2>
       <span onClick={toggleFave}>
         <FontAwesomeIcon
           icon={isFave ? solidHeart : regularHeart}

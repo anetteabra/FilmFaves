@@ -7,7 +7,17 @@ const Footer = () => {
     <div className={styles.footer}>
       <div className={styles.love}>
         <FontAwesomeIcon icon={faHeart} />
-        <p>end</p>
+        <p>Powered by</p>
+        <a
+          href="https://www.themoviedb.org/"
+          target="_blank"
+          rel="noopener noreferrer">
+          <img
+            src="/src/assets/tmdb.svg"
+            alt="TMDb Logo"
+            className={styles.tmdbLogo}
+          />
+        </a>
       </div>
     </div>
   );

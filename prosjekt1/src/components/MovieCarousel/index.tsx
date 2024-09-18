@@ -8,6 +8,7 @@ interface Movie {
   poster_path: string;
   title: string;
   id: number;
+  vote_average: number;
 }
 
 const MovieCarousel: React.FC = () => {
@@ -55,7 +56,8 @@ const MovieCarousel: React.FC = () => {
           id={data[currentIndex].id}
           isFave={faves.includes(data[currentIndex].id)}
           toggleFave={() => toggleFave(data[currentIndex].id)}
-        />
+          voteAverage={data![currentIndex].vote_average}
+      />
       )}
       <button onClick={handleNext} className={styles.carouselButton}>
         ›
