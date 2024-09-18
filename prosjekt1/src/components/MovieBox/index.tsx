@@ -1,18 +1,22 @@
-import React from 'react';
-//import { useQuery } from '@tanstack/react-query';
-//import { fetchMovies } from '../../api/tmdbApi';
-//import { useParams } from 'react-router-dom';
 import styles from './MovieBox.module.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart as solidHeart } from '@fortawesome/free-solid-svg-icons';
+import { faHeart as regularHeart } from '@fortawesome/free-regular-svg-icons';
 
 interface MovieBoxProps {
   posterPath: string;
   title: string;
+  id: number;
+  isFave: boolean;
+  toggleFave: () => void;
   voteAverage: number;
 }
 
 const MovieBox: React.FC<MovieBoxProps> = ({
   posterPath,
   title,
+  isFave,
+  toggleFave,
   voteAverage,
 }) => {
   return (
@@ -24,6 +28,12 @@ const MovieBox: React.FC<MovieBoxProps> = ({
       />
       {/* <h2 className={styles.movieTitle}>{title}</h2> */}
       <h2 className={styles.movieTitle}>Rating: {voteAverage.toFixed(1)}/10</h2>
+      <span onClick={toggleFave}>
+        <FontAwesomeIcon
+          icon={isFave ? solidHeart : regularHeart}
+          className={`${styles.heart} ${isFave ? styles.fave : styles.notFave}`}
+        />
+      </span>
     </div>
   );
 };
