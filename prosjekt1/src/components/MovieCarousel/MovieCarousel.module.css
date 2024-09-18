@@ -1,0 +1,14 @@
+.movieCarousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+}
+
+.carouselButton {
+  background: none;
+  margin: 0 20px;
+  border: none;
+  font-size: 4em;
+  cursor: pointer;
+}

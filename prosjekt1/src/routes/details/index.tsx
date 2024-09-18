@@ -1,9 +1,9 @@
-import styles from './Home.module.css';
+import styles from './details.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons/faMagnifyingGlass';
-import MovieCarousel from '../../components/MovieCarousel';
+import MovieDetail from '../../components/MovieDetail';
 
-const Home = () => {
+const details = () => {
   return (
     <>
       <div className={styles.controls}>
@@ -11,10 +11,10 @@ const Home = () => {
           <FontAwesomeIcon icon={faMagnifyingGlass} />
           <input type="text" className={styles.search} />
         </div>
-        <MovieCarousel />
+        <MovieDetail posterPath={''} title={''} />
       </div>
     </>
   );
 };
 
-export default Home;
+export default details;

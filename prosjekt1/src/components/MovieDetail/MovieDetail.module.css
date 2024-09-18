@@ -1,0 +1,15 @@
+
+.moviePoster {
+  width: 70%; /* Gjør bildet responsivt */
+  border-radius: 10px;
+}
+
+.movieTitle {
+  font-size: 1.5em;
+  margin-top: 10px;
+}
+
+
+.divdetails {
+  margin-bottom: 100px;
+}
