@@ -7,6 +7,7 @@ import styles from './MovieCarousel.module.css';
 interface Movie {
   poster_path: string;
   title: string;
+  vote_average: number;
 }
 
 const MovieCarousel: React.FC = () => {
@@ -39,6 +40,7 @@ const MovieCarousel: React.FC = () => {
       <MovieBox
         posterPath={data![currentIndex].poster_path}
         title={data![currentIndex].title}
+        voteAverage={data![currentIndex].vote_average}
       />
       <button onClick={handleNext} className={styles.carouselButton}>
         ›

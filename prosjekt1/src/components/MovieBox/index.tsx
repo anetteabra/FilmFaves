@@ -7,9 +7,14 @@ import styles from './MovieBox.module.css';
 interface MovieBoxProps {
   posterPath: string;
   title: string;
+  voteAverage: number;
 }
 
-const MovieBox: React.FC<MovieBoxProps> = ({ posterPath, title }) => {
+const MovieBox: React.FC<MovieBoxProps> = ({
+  posterPath,
+  title,
+  voteAverage,
+}) => {
   return (
     <div className={styles.movieBox}>
       <img
@@ -17,7 +22,8 @@ const MovieBox: React.FC<MovieBoxProps> = ({ posterPath, title }) => {
         alt={title}
         className={styles.moviePoster}
       />
-      <h2 className={styles.movieTitle}>{title}</h2>
+      {/* <h2 className={styles.movieTitle}>{title}</h2> */}
+      <h2 className={styles.movieTitle}>Rating: {voteAverage.toFixed(1)}/10</h2>
     </div>
   );
 };
