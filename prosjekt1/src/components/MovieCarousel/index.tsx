@@ -30,9 +30,10 @@ const MovieCarousel: React.FC<MovieCarouselProps> = ({ sortOption }) => {
 
   useEffect(() => {
     if (data) {
-      const sortedMovies = sortOption === 'rating'
-        ? [...data].sort((a, b) => b.vote_average - a.vote_average)
-        : data;
+      const sortedMovies =
+        sortOption === 'rating'
+          ? [...data].sort((a, b) => b.vote_average - a.vote_average)
+          : data;
       setSortedMovies(sortedMovies);
     }
   }, [sortOption, data]);
