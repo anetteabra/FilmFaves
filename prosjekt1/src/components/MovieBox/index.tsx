@@ -8,7 +8,8 @@ interface MovieBoxProps {
   title: string;
   id: number;
   isFave: boolean;
-  toggleFave: () => void;
+  faves: number[];
+  setFaves: React.Dispatch<React.SetStateAction<number[]>>;
   voteAverage: number;
   onClick?: () => void;
 }
@@ -16,11 +17,21 @@ interface MovieBoxProps {
 const MovieBox: React.FC<MovieBoxProps> = ({
   posterPath,
   title,
+  id,
   onClick,
   isFave,
-  toggleFave,
+  faves,
+  setFaves,
   voteAverage,
 }) => {
+  const toggleFave = (id: number) => {
+    const newFaves = faves.includes(id)
+    ? faves.filter(faveId => faveId !== id)
+    : [...faves, id];
+    setFaves(newFaves);
+    localStorage.setItem('faves', JSON.stringify(newFaves));
+  };
+
   return (
     <div
       onClick={onClick}
@@ -33,7 +44,10 @@ const MovieBox: React.FC<MovieBoxProps> = ({
       />
       {/* <h2 className={styles.movieTitle}>{title}</h2> */}
       <h2 className={styles.movieTitle}>Rating: {voteAverage.toFixed(1)}/10</h2>
-      <span onClick={toggleFave}>
+      <span onClick={(e) => { 
+        e.stopPropagation(); 
+        toggleFave(id); 
+      }}>
         <FontAwesomeIcon
           icon={isFave ? solidHeart : regularHeart}
           className={`${styles.heart} ${isFave ? styles.fave : styles.notFave}`}

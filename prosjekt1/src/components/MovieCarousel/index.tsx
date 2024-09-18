@@ -40,14 +40,6 @@ const MovieCarousel: React.FC = () => {
     );
   };
 
-  const toggleFave = (id: number) => {
-    const newFaves = faves.includes(id)
-      ? faves.filter(faveId => faveId !== id)
-      : [...faves, id];
-    setFaves(newFaves);
-    localStorage.setItem('faves', JSON.stringify(newFaves));
-  };
-
   const handleMovieClick = (movie: Movie) => {
     //
     // Use navigate to go to the movie details page
@@ -65,7 +57,8 @@ const MovieCarousel: React.FC = () => {
           title={data[currentIndex].title}
           id={data[currentIndex].id}
           isFave={faves.includes(data[currentIndex].id)}
-          toggleFave={() => toggleFave(data[currentIndex].id)}
+          faves={faves}
+          setFaves={setFaves}
           voteAverage={data![currentIndex].vote_average}
           onClick={() => handleMovieClick(data![currentIndex])} // Pass the onClick
         />
