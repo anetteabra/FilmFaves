@@ -12,3 +12,28 @@
   font-size: 4em;
   cursor: pointer;
 }
+
+.movieList {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 4 kolonner på større skjermer */
+  grid-gap: 20px; /* Avstand mellom boksene */
+  padding: 20px;
+}
+
+@media (max-width: 1200px) {
+  .movieList {
+    grid-template-columns: repeat(3, 1fr); 
+  }
+}
+
+@media (max-width: 900px) {
+  .movieList {
+    grid-template-columns: repeat(2, 1fr); 
+  }
+}
+
+@media (max-width: 600px) {
+  .movieList {
+    grid-template-columns: 1fr; 
+  }
+}
