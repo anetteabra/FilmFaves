@@ -1,9 +1,4 @@
-.root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
+/* Base styles */
 
 .controls {
   display: flex;
@@ -18,7 +13,7 @@
 .searchContainer {
   display: flex;
   align-items: center;
-  width: 100%;
+  width: 40%;
   box-sizing: border-box;
   border: 0.1rem solid var(--color-blue-dark);
   padding: 1rem;
@@ -43,3 +38,21 @@
     outline: none;
   }
 }
+
+/* Media Query for smaller screens */
+@media screen {
+  .controls {
+    width: 70%;
+    gap: 3rem; /* Adjust gap for smaller screens */
+    padding-top: 5rem; /* Optionally adjust padding */
+  }
+}
+
+
+@media (max-width: 1400px) {
+  .controls {
+    width: 60%;
+    gap: 3rem; 
+    padding-top: 5rem;
+  }
+} 

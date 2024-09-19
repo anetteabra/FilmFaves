@@ -17,20 +17,39 @@
   margin-top: 10px;
 }
 
-.heart {
-  cursor: pointer;
-  font-size: 24px; /* Juster størrelsen her */
+/* Responsive adjustments for tablets */
+@media (min-width: 600px) {
+  .movieBox {
+    width: 400px;
+  }
+
+  .movieTitle {
+    font-size: 1.8em;
+  }
 }
 
-.heart.fave {
-  color: red;
+/* Responsive adjustments for larger screens */
+@media (min-width: 1024px) {
+  .movieBox {
+    width: 350px;
+  }
+
+  .movieTitle {
+    font-size: 2em;
+  }
 }
 
-.heart.notFave {
-  color: grey;
-}
+/* Responsive adjustments for smaller screens (phones) */
+@media (max-width: 599px) {
+  .movieBox {
+    width: 100%; /* Take full width on small screens */
+  }
 
-.divdetails {
-  margin-bottom: 200px;
-  background-color: aqua;
-}
+  .movieTitle {
+    font-size: 1.2em;
+  }
+} 
+
+
+
+

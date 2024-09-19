@@ -1,3 +1,4 @@
+/* Footer remains at the bottom of the page */
 .footer {
   display: flex;
   flex-direction: column;
@@ -5,7 +6,8 @@
   width: 100%;
   background-color: var(--color-blue);
   color: white;
-  position: sticky;
+  padding: 1rem;
+  position: relative;
 }
 
 .love {

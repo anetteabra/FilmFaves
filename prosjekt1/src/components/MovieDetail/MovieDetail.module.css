@@ -1,3 +1,4 @@
+
 .moviePoster {
   width: 70%; /* Gjør bildet responsivt */
   border-radius: 10px;
@@ -9,5 +10,12 @@
 }
 
 .divdetails {
-  margin-bottom: 100px;
+  width: 40%;
+}
+
+@media (max-width: 1500px) {
+  .divdetails {
+    width: 100%;
+  }
+  
 }
