@@ -65,6 +65,7 @@ import styles from './SeachBar.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons/faMagnifyingGlass';
 import { useSearchParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { fetchMovies } from '../../api/tmdbApi';
@@ -96,6 +97,12 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
     queryFn: fetchMovies,
   });
 
+  const navigate = useNavigate();
+
+  const handleMovieClick = (id: number) => {
+    navigate(`/movie/${id}`);
+  }
+
   const isInSearch = (value: string) => {
     return (value || '').toLowerCase().includes(searchQuery.toLowerCase());
   };
@@ -116,6 +123,9 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
     localStorage.setItem('faves', JSON.stringify(newFaves));
   };
 
+  const filteredMovies = movieQuery.data?.filter(movie =>
+    isInSearch(movie.title)) || [];
+
   return (
     <>
       <div className={styles.searchContainer}>
@@ -132,10 +142,12 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
       </div>
       {isTyping && (
         <div id="setList" className={styles.setList}>
-          {movieQuery.status === 'success' &&
-            movieQuery.data
-              .filter(movie => isInSearch(movie.title))
-              .map(movie => (
+          {movieQuery.status === 'success' && filteredMovies.length === 0 ? (
+            <div className={styles.message}>
+              <p>No results found for "{searchQuery}".</p>
+            </div>
+          ) : (
+            filteredMovies.map(movie => (
                 <MovieBox
                   key={movie.id}
                   posterPath={movie.poster_path}
@@ -144,10 +156,13 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
                   isFave={faves.includes(movie.id)}
                   toggleFave={() => toggleFave(movie.id)}
                   voteAverage={movie.vote_average}
+                  onClick={() => handleMovieClick(movie.id)}
                 />
-              ))}
+              ))
+          )}
         </div>
-      )}
+        )
+      }
     </>
   );
 };
