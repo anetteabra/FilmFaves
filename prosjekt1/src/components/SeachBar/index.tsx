@@ -25,34 +25,11 @@ const SearchBar: React.FC = () => {
     return JSON.parse(localStorage.getItem('faves') || '[]');
   });
 
-  /* const {data: movies, error, isLoading } = useQuery<Movie[]>({
-    queryKey: ['movies'],
-    queryFn: fetchMovies,
-  }); */
-  const movieQuery = useQuery<Movie[]>({
+  const {data: movies, error, isLoading } = useQuery<Movie[]>({
     queryKey: ['movies'],
     queryFn: fetchMovies,
   });
 
-  if (movieQuery.isLoading) {
-    return <div>Loading...</div>;
-  }
-
-  if (movieQuery.isError) {
-    return <div>error..</div> ;
-  }
-
-  if (!movieQuery.data) {
-    return <div>Undefined data</div>;
-  }
-
-  console.log(movieQuery.data[1].poster_Path);
-
-  const isInSearch = (value: string) => {
-    return (value || "")
-      .toLowerCase()
-      .includes(searchParams.get("search")?.toLowerCase()|| "  ");
-  };
 
   useEffect(() => {
     setSearchParams({
@@ -60,6 +37,12 @@ const SearchBar: React.FC = () => {
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchQuery]);
+
+  const isInSearch = (value: string) => {
+    return (value || "")
+      .toLowerCase()
+      .includes(searchParams.get("search")?.toLowerCase()|| "");
+  };
 
   const navigate = useNavigate();
   const handleMovieClick = (movie: Movie) => {
@@ -71,7 +54,6 @@ const SearchBar: React.FC = () => {
 
   return (
     <>
-
         <div className={styles.searchContainer}>
           <FontAwesomeIcon icon={faMagnifyingGlass} />
           <input type="text" className={styles.search} 
@@ -82,12 +64,9 @@ const SearchBar: React.FC = () => {
           />
         </div>
         <div id="setList" className={styles.setList}>
-          {movieQuery.status === "success" && 
-            movieQuery.data
-              .filter(
-                (set) =>
-                  isInSearch(set.title)
-              )
+          {movies && 
+            movies
+              .filter((set) => isInSearch(set.title))
               .map((set) => <MovieBox  
               posterPath={set.poster_Path}
               title={set.title}

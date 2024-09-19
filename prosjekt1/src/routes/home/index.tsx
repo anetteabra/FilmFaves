@@ -8,7 +8,7 @@ const Home = () => {
     <>
       <div className={styles.controls}>
         <SearchBar/> 
-        <MovieCarousel />
+        <MovieCarousel/>
       </div>
     </>
   );
