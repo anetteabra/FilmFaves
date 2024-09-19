@@ -43,7 +43,7 @@ const MovieBox: React.FC<MovieBoxProps> = ({
         className={styles.moviePoster}
       />
       {/* <h2 className={styles.movieTitle}>{title}</h2> */}
-      <h2 className={styles.movieTitle}>Rating: {voteAverage.toFixed(1)}/10</h2>
+      <h2 className={styles.movieTitle}> Rating: {voteAverage? voteAverage.toFixed(1): 'N/A'}/10</h2>
       <span onClick={(e) => { 
         e.stopPropagation(); 
         toggleFave(id); 
