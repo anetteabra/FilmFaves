@@ -11,7 +11,7 @@ const details = () => {
           <FontAwesomeIcon icon={faMagnifyingGlass} />
           <input type="text" className={styles.search} />
         </div>
-        <MovieDetail posterPath={''} title={''} />
+        <MovieDetail />
       </div>
     </>
   );
