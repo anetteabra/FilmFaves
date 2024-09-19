@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom';
 import MovieBox from '../MovieBox';
 
 interface Movie {
-  poster_Path: string;
+  poster_path: string;
   title: string;
   id: number;
   isFave: boolean;
@@ -65,10 +65,10 @@ const SearchBar: React.FC = () => {
         </div>
         <div id="setList" className={styles.setList}>
           {movies && 
-            movies
+              movies
               .filter((set) => isInSearch(set.title))
               .map((set) => <MovieBox  
-              posterPath={set.poster_Path}
+              posterPath={set.poster_path}
               title={set.title}
               id={set.id}
               isFave={faves.includes(set.id)}

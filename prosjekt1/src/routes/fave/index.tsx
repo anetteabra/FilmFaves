@@ -40,11 +40,11 @@ const Fave: React.FC = () => {
   
   return (
     <div className={styles.controls}>
-      <h2>Dine favorittfilmer</h2>
+      <h2>Your favoritt movies</h2>
       <div className={styles.setList}
       id="favoriteMovieList">
         {favoriteMovies?.map((movie) => (
-          <MovieBox
+        <MovieBox
             key={movie.id}
             posterPath={movie.posterPath}
             title={movie.title}
