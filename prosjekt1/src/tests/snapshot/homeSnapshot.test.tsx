@@ -6,7 +6,7 @@ import { BrowserRouter } from 'react-router-dom';
 
 const queryClient = new QueryClient();
 
-test("Home snapshot", () => {
+test("renders Home page correctly", () => {
 
 const home = render(
 <QueryClientProvider client={queryClient}>
