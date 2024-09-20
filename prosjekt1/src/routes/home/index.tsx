@@ -23,7 +23,7 @@ const Home = () => {
   return (
     <>
       <div className={styles.controls}>
-        <SearchBar onSearch={handleSearch} />
+        <SearchBar onSearch={handleSearch}/>
         {!isSearching && (
           <SortingBox onSortChange={setSortOption} disabled={isSearching} />
         )}

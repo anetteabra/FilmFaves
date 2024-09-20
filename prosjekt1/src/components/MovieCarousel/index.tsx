@@ -99,7 +99,6 @@ const MovieCarousel: React.FC<MovieCarouselProps> = ({ sortOption }) => {
               toggleFave={() => toggleFave(movie.id)}
               voteAverage={movie.vote_average}
               onClick={() => handleMovieClick(movie)}
-              // onClick={() => handleMovieClick(sortedMovies[currentIndex])} changed because when sorted it only showed details of deadpool
             />
           ))}
         </div>

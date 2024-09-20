@@ -43,3 +43,21 @@
     outline: none;
   }
 }
+
+/* Media Query for smaller screens */
+@media screen {
+  .controls {
+    width: 70%;
+    gap: 3rem; /* Adjust gap for smaller screens */
+    padding-top: 5rem; /* Optionally adjust padding */
+  }
+}
+
+
+@media (max-width: 1400px) {
+  .controls {
+    width: 60%;
+    gap: 3rem; 
+    padding-top: 5rem;
+  }
+} 
