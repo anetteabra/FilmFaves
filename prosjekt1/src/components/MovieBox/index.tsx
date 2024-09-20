@@ -11,6 +11,8 @@ interface MovieBoxProps {
   toggleFave: () => void;
   voteAverage: number;
   onClick?: () => void;
+  faves: number[];
+  setFaves: React.Dispatch<React.SetStateAction<number[]>>;
 }
 
 const MovieBox: React.FC<MovieBoxProps> = ({

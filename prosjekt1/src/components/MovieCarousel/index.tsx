@@ -81,6 +81,8 @@ const MovieCarousel: React.FC<MovieCarouselProps> = ({ sortOption }) => {
             toggleFave={() => toggleFave(sortedMovies[currentIndex].id)}
             voteAverage={sortedMovies[currentIndex].vote_average}
             onClick={() => handleMovieClick(sortedMovies[currentIndex])}
+            faves={faves}
+            setFaves={setFaves}
           />
           <button onClick={handleNext} className={styles.carouselButton}>
             ›
@@ -99,6 +101,8 @@ const MovieCarousel: React.FC<MovieCarouselProps> = ({ sortOption }) => {
               toggleFave={() => toggleFave(movie.id)}
               voteAverage={movie.vote_average}
               onClick={() => handleMovieClick(movie)}
+              faves={faves}
+              setFaves={setFaves}
               // onClick={() => handleMovieClick(sortedMovies[currentIndex])} changed because when sorted it only showed details of deadpool
             />
           ))}

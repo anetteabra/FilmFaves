@@ -94,6 +94,8 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
                 toggleFave={() => toggleFave(movie.id)}
                 voteAverage={movie.vote_average}
                 onClick={() => handleMovieClick(movie.id)}
+                faves={faves}
+                setFaves={setFaves}
               />
             ))
           )}
