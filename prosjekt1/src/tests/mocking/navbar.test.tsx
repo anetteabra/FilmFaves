@@ -8,7 +8,7 @@ describe('Navbar', () => {
     render(
       <MemoryRouter>
         <Navbar />
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
     // Check if the FilmFaves header is rendered
@@ -23,10 +23,10 @@ describe('Navbar', () => {
     render(
       <MemoryRouter>
         <Navbar />
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
     // Click on the "HOME" link
     fireEvent.click(screen.getByText('HOME'));
-});
+  });
 });
