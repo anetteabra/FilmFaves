@@ -1,15 +1,34 @@
+import { useState, useEffect } from 'react';
 import styles from './Home.module.css';
+import SearchBar from '../../components/SeachBar';
+import SortingBox from '../../components/SortingBox';
 import MovieCarousel from '../../components/MovieCarousel';
-// import SearchBar from '../../components/SeachBar';
 
 const Home = () => {
+  const defaultOption = 'carousel';
+  const [sortOption, setSortOption] = useState<string>(defaultOption);
+  const [isSearching, setIsSearching] = useState(false);
+
+  useEffect(() => {
+    const savedOption = sessionStorage.getItem('sortOption');
+    if (savedOption) {
+      setSortOption(savedOption);
+    }
+  }, []);
+
+  const handleSearch = (query: string) => {
+    setIsSearching(!!query);
+  };
 
   return (
     <>
       <div className={styles.controls}>
-        {/* <SearchBar/>  */}
-        <MovieCarousel />
+        <SearchBar onSearch={handleSearch} />
+        {!isSearching && (
+          <SortingBox onSortChange={setSortOption} disabled={isSearching} />
+        )}
       </div>
+      {!isSearching && <MovieCarousel sortOption={sortOption} />}
     </>
   );
 };

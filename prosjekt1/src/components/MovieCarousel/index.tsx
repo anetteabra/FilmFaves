@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { fetchMovies } from '../../api/tmdbApi';
 import MovieBox from '../MovieBox';
 import styles from './MovieCarousel.module.css';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { useNavigate } from 'react-router-dom';
 
 interface Movie {
   poster_path: string;
@@ -12,7 +12,11 @@ interface Movie {
   vote_average: number;
 }
 
-const MovieCarousel: React.FC = () => {
+interface MovieCarouselProps {
+  sortOption: string;
+}
+
+const MovieCarousel: React.FC<MovieCarouselProps> = ({ sortOption }) => {
   const { data, error, isLoading } = useQuery<Movie[]>({
     queryKey: ['movies'],
     queryFn: fetchMovies,
@@ -22,21 +26,29 @@ const MovieCarousel: React.FC = () => {
     return JSON.parse(localStorage.getItem('faves') || '[]');
   });
 
-  // Create navigate function using useNavigate
   const navigate = useNavigate();
 
-  if (isLoading) return <div>Loading...</div>;
-  if (error) return <div>Error loading movies</div>;
+  useEffect(() => {
+    if (data) {
+      const sortedMovies =
+        sortOption === 'rating'
+          ? [...data].sort((a, b) => b.vote_average - a.vote_average)
+          : data;
+      setSortedMovies(sortedMovies);
+    }
+  }, [sortOption, data]);
+
+  const [sortedMovies, setSortedMovies] = useState<Movie[]>([]);
 
   const handlePrev = () => {
     setCurrentIndex(prevIndex =>
-      prevIndex === 0 ? data!.length - 1 : prevIndex - 1,
+      prevIndex === 0 ? sortedMovies.length - 1 : prevIndex - 1,
     );
   };
 
   const handleNext = () => {
     setCurrentIndex(prevIndex =>
-      prevIndex === data!.length - 1 ? 0 : prevIndex + 1,
+      prevIndex === sortedMovies.length - 1 ? 0 : prevIndex + 1,
     );
   };
 
@@ -49,31 +61,50 @@ const MovieCarousel: React.FC = () => {
   };
 
   const handleMovieClick = (movie: Movie) => {
-    //
-    // Use navigate to go to the movie details page
     navigate(`/movie/${movie.id}`);
   };
 
   return (
-    <div className={styles.movieCarousel}>
-      <button onClick={handlePrev} className={styles.carouselButton}>
-        ‹
-      </button>
-      {data && (
-        <MovieBox
-          posterPath={data[currentIndex].poster_path}
-          title={data[currentIndex].title}
-          id={data[currentIndex].id}
-          isFave={faves.includes(data[currentIndex].id)}
-          toggleFave={() => toggleFave(data[currentIndex].id)}
-          voteAverage={data![currentIndex].vote_average}
-          onClick={() => handleMovieClick(data![currentIndex])} // Pass the onClick
-        />
+    <>
+      {isLoading && <div>Loading...</div>}
+      {error && <div>Error loading movies</div>}
+      {sortOption === 'carousel' && sortedMovies.length > 0 && (
+        <div className={styles.movieCarousel}>
+          <button onClick={handlePrev} className={styles.carouselButton}>
+            ‹
+          </button>
+          <MovieBox
+            posterPath={sortedMovies[currentIndex].poster_path}
+            title={sortedMovies[currentIndex].title}
+            id={sortedMovies[currentIndex].id}
+            isFave={faves.includes(sortedMovies[currentIndex].id)}
+            toggleFave={() => toggleFave(sortedMovies[currentIndex].id)}
+            voteAverage={sortedMovies[currentIndex].vote_average}
+            onClick={() => handleMovieClick(sortedMovies[currentIndex])}
+          />
+          <button onClick={handleNext} className={styles.carouselButton}>
+            ›
+          </button>
+        </div>
       )}
-      <button onClick={handleNext} className={styles.carouselButton}>
-        ›
-      </button>
-    </div>
+      {sortOption === 'rating' && (
+        <div className={styles.movieList}>
+          {sortedMovies.map(movie => (
+            <MovieBox
+              key={movie.id}
+              posterPath={movie.poster_path}
+              title={movie.title}
+              id={movie.id}
+              isFave={faves.includes(movie.id)}
+              toggleFave={() => toggleFave(movie.id)}
+              voteAverage={movie.vote_average}
+              onClick={() => handleMovieClick(movie)}
+              // onClick={() => handleMovieClick(sortedMovies[currentIndex])} changed because when sorted it only showed details of deadpool
+            />
+          ))}
+        </div>
+      )}
+    </>
   );
 };
 
