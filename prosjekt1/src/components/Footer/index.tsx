@@ -13,7 +13,7 @@ const Footer = () => {
           target="_blank"
           rel="noopener noreferrer">
           <img
-            src="/src/assets/tmdb.svg"
+            src="/project1/src/assets/tmdb.svg"
             alt="TMDb Logo"
             className={styles.tmdbLogo}
           />
