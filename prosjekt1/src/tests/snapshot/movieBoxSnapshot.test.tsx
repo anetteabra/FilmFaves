@@ -2,8 +2,7 @@ import { render } from '@testing-library/react';
 import MovieBox from '../../components/MovieBox';
 import { vi } from 'vitest';
 
-
-test("renders MovieBox component correctly", () => {
+test('renders MovieBox component correctly', () => {
   const mockProps = {
     posterPath: '/path/to/poster.jpg',
     title: 'Mock Movie',
@@ -16,4 +15,4 @@ test("renders MovieBox component correctly", () => {
 
   const movieBox = render(<MovieBox {...mockProps} />);
   expect(movieBox).toMatchSnapshot();
-})
+});

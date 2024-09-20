@@ -1,19 +1,19 @@
 /* Root container for the whole layout */
 .root {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; /* Full viewport height */
-  }
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Full viewport height */
+}
 
 /* Content area (Routes) will take up remaining space */
 .content {
-    flex-grow: 1; /* Ensure the content section fills the available space */
-    padding: 2rem; /* Optional padding */
-    margin-bottom: 100px;
-  }
+  flex-grow: 1; /* Ensure the content section fills the available space */
+  padding: 2rem; /* Optional padding */
+  margin-bottom: 100px;
+}
 
 @media screen {
-    .content {
-        margin-bottom: 50px;
-    }
+  .content {
+    margin-bottom: 50px;
+  }
 }
