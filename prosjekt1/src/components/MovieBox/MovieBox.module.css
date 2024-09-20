@@ -30,10 +30,6 @@
   color: grey;
 }
 
-.divdetails {
-  margin-bottom: 200px;
-}
-
 /* Responsive adjustments for tablets */
 @media (min-width: 600px) {
   .movieBox {
