@@ -72,7 +72,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
       <div className={styles.searchContainer}>
         <FontAwesomeIcon icon={faMagnifyingGlass} />
         <input
-          data-testid="search-input" 
+          data-testid="search-input"
           type="text"
           className={styles.search}
           value={searchQuery}

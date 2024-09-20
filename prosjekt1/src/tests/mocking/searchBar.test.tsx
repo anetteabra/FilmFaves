@@ -7,16 +7,16 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 const queryClient = new QueryClient();
 
 describe('SearchBar Component', () => {
-    it('should render the search bar', () => {
-        render(
-          <QueryClientProvider client={queryClient}>
-            <MemoryRouter>
-              <SearchBar onSearch={vi.fn()} />
-            </MemoryRouter>
-          </QueryClientProvider>
-        );
+  it('should render the search bar', () => {
+    render(
+      <QueryClientProvider client={queryClient}>
+        <MemoryRouter>
+          <SearchBar onSearch={vi.fn()} />
+        </MemoryRouter>
+      </QueryClientProvider>,
+    );
 
-        const inputElement = screen.getByTestId('search-input');
-        expect(inputElement).toBeInTheDocument();
-      });
-    });
+    const inputElement = screen.getByTestId('search-input');
+    expect(inputElement).toBeInTheDocument();
+  });
+});

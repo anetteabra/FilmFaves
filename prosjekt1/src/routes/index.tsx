@@ -8,7 +8,7 @@ import styles from './routes.module.css';
 const RouterConfig = () => (
   <div data-testid="auth-wrapper" className={styles.root}>
     <Navbar />
-    <div className={styles.content} >
+    <div className={styles.content}>
       <Routes>
         <Route index element={<Home />} />
         <Route path="/movie/:id" element={<Details />} />

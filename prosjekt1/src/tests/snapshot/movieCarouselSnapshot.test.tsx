@@ -5,13 +5,13 @@ import { BrowserRouter } from 'react-router-dom';
 
 const queryClient = new QueryClient();
 
-test("renders MovieCarousel component correctly", () => {
+test('renders MovieCarousel component correctly', () => {
   const movieCarousel = render(
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
         <MovieCarousel sortOption="rating" />
       </BrowserRouter>
-    </QueryClientProvider>
+    </QueryClientProvider>,
   );
   expect(movieCarousel).toMatchSnapshot();
 });
