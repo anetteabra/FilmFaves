@@ -11,7 +11,7 @@ describe('SearchBar Component', () => {
         render(
           <QueryClientProvider client={queryClient}>
             <MemoryRouter>
-              <SearchBar onSearch={vi.fn()} id={0} vote_average={0} />
+              <SearchBar onSearch={vi.fn()} />
             </MemoryRouter>
           </QueryClientProvider>
         );

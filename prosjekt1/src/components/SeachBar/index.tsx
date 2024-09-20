@@ -17,8 +17,6 @@ interface Movie {
 
 interface SearchBarProps {
   onSearch: (query: string) => void;
-  id: number;
-  vote_average: number;
 }
 
 interface SearchBarProps {
