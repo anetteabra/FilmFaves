@@ -33,7 +33,11 @@ const MovieBox: React.FC<MovieBoxProps> = ({
       />
       {/* <h2 className={styles.movieTitle}>{title}</h2> */}
       <h2 className={styles.movieTitle}>Rating: {voteAverage.toFixed(1)}/10</h2>
-      <span onClick={toggleFave}>
+      <span onClick={(event) => {
+        event.stopPropagation();
+        toggleFave();
+      }}
+     >
         <FontAwesomeIcon
           icon={isFave ? solidHeart : regularHeart}
           className={`${styles.heart} ${isFave ? styles.fave : styles.notFave}`}
