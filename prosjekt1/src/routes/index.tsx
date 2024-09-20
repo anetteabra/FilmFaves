@@ -3,11 +3,12 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import Home from './home';
 import Details from './details';
+import styles from './routes.module.css';
 
 const RouterConfig = () => (
-  <div data-testid="auth-wrapper">
+  <div data-testid="auth-wrapper" className={styles.root}>
     <Navbar />
-    <div style={{ minHeight: '100vh' }}>
+    <div className={styles.content} >
       <Routes>
         <Route index element={<Home />} />
         <Route path="/movie/:id" element={<Details />} />
