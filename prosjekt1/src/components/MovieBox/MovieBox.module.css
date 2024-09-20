@@ -32,5 +32,37 @@
 
 .divdetails {
   margin-bottom: 200px;
-  background-color: aqua;
 }
+
+/* Responsive adjustments for tablets */
+@media (min-width: 600px) {
+  .movieBox {
+    width: 400px;
+  }
+
+  .movieTitle {
+    font-size: 1.8em;
+  }
+}
+
+/* Responsive adjustments for larger screens */
+@media (min-width: 1024px) {
+  .movieBox {
+    width: 350px;
+  }
+
+  .movieTitle {
+    font-size: 2em;
+  }
+}
+
+/* Responsive adjustments for smaller screens (phones) */
+@media (max-width: 599px) {
+  .movieBox {
+    width: 100%; /* Take full width on small screens */
+  }
+
+  .movieTitle {
+    font-size: 1.2em;
+  }
+} 
