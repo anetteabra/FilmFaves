@@ -19,6 +19,10 @@ interface SearchBarProps {
   onSearch: (query: string) => void;
 }
 
+interface SearchBarProps {
+  onSearch: (query: string) => void;
+}
+
 const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [searchQuery, setSearchQuery] = useState(
@@ -68,6 +72,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
       <div className={styles.searchContainer}>
         <FontAwesomeIcon icon={faMagnifyingGlass} />
         <input
+          data-testid="search-input" 
           type="text"
           className={styles.search}
           value={searchQuery}
