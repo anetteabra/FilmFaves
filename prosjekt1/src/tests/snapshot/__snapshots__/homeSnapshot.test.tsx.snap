@@ -28,6 +28,7 @@ exports[`renders Home page correctly 1`] = `
           </svg>
           <input
             class="_search_0a87f4"
+            data-testid="search-input"
             type="text"
             value=""
           />
@@ -87,6 +88,7 @@ exports[`renders Home page correctly 1`] = `
         </svg>
         <input
           class="_search_0a87f4"
+          data-testid="search-input"
           type="text"
           value=""
         />
