@@ -17,9 +17,20 @@
   margin-top: 10px;
 }
 
+.heart {
+  cursor: pointer;
+  font-size: 24px; /* Juster størrelsen her */
+}
+
+.heart.fave {
+  color: red;
+}
+
+.heart.notFave {
+  color: grey;
+}
+
 .divdetails {
   margin-bottom: 200px;
   background-color: aqua;
 }
-
-

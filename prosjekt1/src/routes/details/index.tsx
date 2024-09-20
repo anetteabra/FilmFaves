@@ -7,10 +7,6 @@ const details = () => {
   return (
     <>
       <div className={styles.controls}>
-        <div className={styles.searchContainer}>
-          <FontAwesomeIcon icon={faMagnifyingGlass} />
-          <input type="text" className={styles.search} />
-        </div>
         <MovieDetail />
       </div>
     </>

@@ -1,18 +1,34 @@
+import { useState, useEffect } from 'react';
 import styles from './Home.module.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons/faMagnifyingGlass';
+import SearchBar from '../../components/SeachBar';
+import SortingBox from '../../components/SortingBox';
 import MovieCarousel from '../../components/MovieCarousel';
 
 const Home = () => {
+  const defaultOption = 'carousel';
+  const [sortOption, setSortOption] = useState<string>(defaultOption);
+  const [isSearching, setIsSearching] = useState(false);
+
+  useEffect(() => {
+    const savedOption = sessionStorage.getItem('sortOption');
+    if (savedOption) {
+      setSortOption(savedOption);
+    }
+  }, []);
+
+  const handleSearch = (query: string) => {
+    setIsSearching(!!query);
+  };
+
   return (
     <>
       <div className={styles.controls}>
-        <div className={styles.searchContainer}>
-          <FontAwesomeIcon icon={faMagnifyingGlass} />
-          <input type="text" className={styles.search} />
-        </div>
-        <MovieCarousel />
+        <SearchBar onSearch={handleSearch} />
+        {!isSearching && (
+          <SortingBox onSortChange={setSortOption} disabled={isSearching} />
+        )}
       </div>
+      {!isSearching && <MovieCarousel sortOption={sortOption} />}
     </>
   );
 };
