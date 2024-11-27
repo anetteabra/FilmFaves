@@ -52,8 +52,20 @@
   margin: 1rem;
 }
 
+
 @media (max-width: 1500px) {
   .controls {
     padding-top: 5rem;
   }
+
+  .home_content {
+    margin-bottom: -400px;
+  }
 }
+
+/* Responsive adjustments for smaller screens (phones) */
+@media (max-width: 599px) {
+  .home_content {
+    margin-bottom: -20rex;
+  }
+} 

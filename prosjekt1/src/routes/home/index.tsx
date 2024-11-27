@@ -22,13 +22,15 @@ const Home = () => {
 
   return (
     <>
-      <div className={styles.controls}>
-        <SearchBar onSearch={handleSearch}/>
-        {!isSearching && (
-          <SortingBox onSortChange={setSortOption} disabled={isSearching} />
-        )}
+      <div className={styles.home_content}>
+        <div className={styles.controls}>
+          <SearchBar onSearch={handleSearch}/>
+          {!isSearching && (
+            <SortingBox onSortChange={setSortOption} disabled={isSearching} />
+          )}
+        </div>
+        {!isSearching && <MovieCarousel sortOption={sortOption} />}
       </div>
-      {!isSearching && <MovieCarousel sortOption={sortOption} />}
     </>
   );
 };

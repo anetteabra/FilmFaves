@@ -33,7 +33,7 @@
 /* Responsive adjustments for tablets */
 @media (min-width: 600px) {
   .movieBox {
-    width: 400px;
+    width: 600px;
   }
 
   .movieTitle {

@@ -1,3 +1,4 @@
+
 .footer {
   display: flex;
   flex-direction: column;
@@ -19,4 +20,19 @@
 .tmdbLogo {
   width: 8rem;
   height: auto;
+}
+
+@media (max-width: 1500px) {
+  .love {
+    flex: 1; /* Fills remaining space between header and footer */
+  }
+  
+  .footer {
+    position: fixed; /* Keep footer at the bottom of the viewport */
+    bottom: 0;
+    width: 100%;
+    z-index: 10; /* Ensure it's above other elements */
+    border-top: 500px;
+  }
+  
 }

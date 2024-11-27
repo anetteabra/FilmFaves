@@ -20,20 +20,19 @@
   padding: 20px;
 }
 
+@media (max-width: 1500px) {
+  .movieList {
+    padding-bottom: 200px;
+  }
+
+  .movieCarousel {
+    padding-bottom: 200px;
+  }
+}
+
 @media (max-width: 1200px) {
-  .movieList {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (max-width: 900px) {
-  .movieList {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 600px) {
   .movieList {
     grid-template-columns: 1fr;
   }
 }
+
