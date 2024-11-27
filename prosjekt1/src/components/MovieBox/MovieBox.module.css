@@ -1,5 +1,5 @@
 .movieBox {
-  width: 250px;
+  width: 300px;
   margin: 10px auto;
   padding: 15px;
   border-radius: 8px; /* Gjør hjørnene avrundet */
@@ -31,7 +31,7 @@
 }
 
 /* Responsive adjustments for tablets */
-@media (min-width: 600px) {
+/* @media (max-width: 600px) {
   .movieBox {
     width: 600px;
   }
@@ -39,12 +39,17 @@
   .movieTitle {
     font-size: 1.8em;
   }
+} */
+
+@media (max-width: 1370px) {
+  .movieBox {
+    width: 35%;
+  }
 }
 
-/* Responsive adjustments for larger screens */
-@media (min-width: 1024px) {
+@media (max-width: 1024px) {
   .movieBox {
-    width: 350px;
+    width: 50%;
   }
 
   .movieTitle {
@@ -52,13 +57,4 @@
   }
 }
 
-/* Responsive adjustments for smaller screens (phones) */
-@media (max-width: 599px) {
-  .movieBox {
-    width: 100%; /* Take full width on small screens */
-  }
 
-  .movieTitle {
-    font-size: 1.2em;
-  }
-}

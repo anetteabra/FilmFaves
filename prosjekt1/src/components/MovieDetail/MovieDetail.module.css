@@ -13,8 +13,8 @@
   width: 40%;
 }
 
-@media (max-width: 1500px) {
+@media (max-width: 1379px) {
   .divdetails {
-    width: 100%;
+    width: 650px;
   }
 }

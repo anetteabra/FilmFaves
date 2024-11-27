@@ -22,16 +22,16 @@
   height: auto;
 }
 
-@media (max-width: 1500px) {
+@media (max-width: 1370) {
   .love {
-    flex: 1; /* Fills remaining space between header and footer */
+    flex: 1; 
   }
   
   .footer {
-    position: fixed; /* Keep footer at the bottom of the viewport */
+    position: sticky; 
     bottom: 0;
     width: 100%;
-    z-index: 10; /* Ensure it's above other elements */
+    z-index: 10; 
     border-top: 500px;
   }
   
