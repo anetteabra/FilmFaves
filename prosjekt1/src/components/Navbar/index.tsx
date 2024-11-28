@@ -9,7 +9,6 @@ const Navbar = () => {
       </Link>
       <div className={styles.links}>
         <NavbarLink to="/">HOME</NavbarLink>
-        <NavbarLink to="/new">FAVE</NavbarLink>
       </div>
     </div>
   );
