@@ -1,3 +1,4 @@
+
 .footer {
   display: flex;
   flex-direction: column;
@@ -19,4 +20,19 @@
 .tmdbLogo {
   width: 8rem;
   height: auto;
+}
+
+@media (max-width: 1370) {
+  .love {
+    flex: 1; 
+  }
+  
+  .footer {
+    position: sticky; 
+    bottom: 0;
+    width: 100%;
+    z-index: 10; 
+    border-top: 500px;
+  }
+  
 }

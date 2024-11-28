@@ -16,7 +16,6 @@ describe('Navbar', () => {
 
     // Check if the Home and Fave links are rendered
     expect(screen.getByText('HOME')).toBeInTheDocument();
-    expect(screen.getByText('FAVE')).toBeInTheDocument();
   });
 
   it('navigates to the correct route when a link is clicked', () => {

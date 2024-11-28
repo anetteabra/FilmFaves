@@ -25,7 +25,7 @@ const SortingBox: React.FC<SortingBoxProps> = ({ onSortChange, disabled }) => {
   return (
     <div className={styles.sortingContainer}>
       <label htmlFor="sortOptions" className={styles.sortLabel}>
-        Sort by...
+        Display Options
       </label>
       <select
         id="sortOptions"

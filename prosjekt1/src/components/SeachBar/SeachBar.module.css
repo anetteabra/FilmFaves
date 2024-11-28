@@ -51,3 +51,10 @@
   gap: 1rem;
   margin: 1rem;
 }
+
+@media (max-width: 1500px) {
+  .searchContainer {
+    width: 50%;
+    margin-top: 10px;
+  }
+}
