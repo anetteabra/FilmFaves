@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
-import { fetchMovies } from '../../api/tmdbApi'; 
+import { fetchMovies } from '../../api/tmdbApi';
 import styles from './MovieDetail.module.css';
 
 interface Movie {
@@ -10,12 +10,12 @@ interface Movie {
   title: string;
   overview: string;
   release_date: string;
-  vote_average: number; 
-  genre_ids: number[]; 
-  runtime: number; 
+  vote_average: number;
+  genre_ids: number[];
+  runtime: number;
 }
 
-// Mocks genre names 
+// Mocks genre names
 const genreNames: { [key: number]: string } = {
   28: 'Action',
   12: 'Adventure',
