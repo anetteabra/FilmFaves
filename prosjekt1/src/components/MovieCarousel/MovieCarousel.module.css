@@ -15,24 +15,18 @@
 
 .movieList {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 4 kolonner på større skjermer */
-  grid-gap: 20px; /* Avstand mellom boksene */
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
   padding: 20px;
 }
 
-@media (max-width: 1200px) {
-  .movieList {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (max-width: 900px) {
+@media (max-width: 1400px) {
   .movieList {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 1200px) {
   .movieList {
     grid-template-columns: 1fr;
   }

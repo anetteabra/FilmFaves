@@ -31,7 +31,6 @@ const MovieBox: React.FC<MovieBoxProps> = ({
         alt={title}
         className={styles.moviePoster}
       />
-      {/* <h2 className={styles.movieTitle}>{title}</h2> */}
       <h2 className={styles.movieTitle}>Rating: {voteAverage.toFixed(1)}/10</h2>
       <span
         onClick={event => {

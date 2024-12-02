@@ -1,14 +1,14 @@
 .movieBox {
-  width: 250px;
+  width: 300px;
   margin: 10px auto;
   padding: 15px;
-  border-radius: 8px; /* Gjør hjørnene avrundet */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Legg til en skygge */
-  text-align: center; /* Sentrer teksten */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
 }
 
 .moviePoster {
-  width: 100%; /* Gjør bildet responsivt */
+  width: 100%;
   border-radius: 4px;
 }
 
@@ -19,7 +19,7 @@
 
 .heart {
   cursor: pointer;
-  font-size: 24px; /* Juster størrelsen her */
+  font-size: 24px;
 }
 
 .heart.fave {
@@ -30,35 +30,18 @@
   color: grey;
 }
 
-/* Responsive adjustments for tablets */
-@media (min-width: 600px) {
+@media (max-width: 1370px) {
   .movieBox {
-    width: 400px;
-  }
-
-  .movieTitle {
-    font-size: 1.8em;
+    width: 35%;
   }
 }
 
-/* Responsive adjustments for larger screens */
-@media (min-width: 1024px) {
+@media (max-width: 1024px) {
   .movieBox {
-    width: 350px;
+    width: 50%;
   }
 
   .movieTitle {
     font-size: 2em;
-  }
-}
-
-/* Responsive adjustments for smaller screens (phones) */
-@media (max-width: 599px) {
-  .movieBox {
-    width: 100%; /* Take full width on small screens */
-  }
-
-  .movieTitle {
-    font-size: 1.2em;
   }
 }

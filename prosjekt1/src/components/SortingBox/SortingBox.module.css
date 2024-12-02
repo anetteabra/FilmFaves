@@ -35,3 +35,17 @@
   cursor: pointer;
   border: none;
 }
+
+@media (max-width: 1370px) {
+  .sortingContainer {
+    width: 35%;
+    margin-bottom: 7%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .sortingContainer {
+    width: 50%;
+    margin-top: 10px;
+  }
+}
