@@ -52,7 +52,14 @@
   margin: 1rem;
 }
 
-@media (max-width: 1500px) {
+@media (max-width: 1370px) {
+  .searchContainer {
+    width: 35%;
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 1024px) {
   .searchContainer {
     width: 50%;
     margin-top: 10px;
