@@ -1,6 +1,6 @@
 # FilmFaves
 
-FilmFaves is a webpage where you can view popular movies and favorite them. The movies are fetched through an API call to TMDB. Popular movies are fetched to avoid fetching too many resources while still providing a good variety.
+FilmFaves is a webpage where you can view popular movies and favorite them. The movies are fetched through a REST API call to TMDB. Popular movies are fetched to avoid fetching too many resources while still providing a good variety.
 
 ## Run the project
 
@@ -33,7 +33,7 @@ FilmFaves is a webpage where you can view popular movies and favorite them. The 
 - **Dedicated Movie Details Page**: Access a details page for each movie.
 - **Like Functionality**: Express your favorites by liking movies with a simple click on the heart icon.
 
-Additionally, we've implemented a responsive design that makes most features adaptable to various screen sizes, but the sorting function doesn't perform optimally. The testing of responsive design was done in Google Chrome (by changing the dimensions), however, when testing with the virtual machine address on our phone, we noticed it didn’t work optimally. Unfortunately, we did not have time to resolve this issue. Also, we noticed that the logo in the footer isn’t displaying on the virtual machine. We believed we had resolved this issue by adding /project1/ to the logo's source, as this fixed it locally, but it still doesn’t appear on the VM. We see potential for improvement in the features, particularly by enhancing the search function with filtering capabilities and expanding the sorting function with additional options.
+Additionally, we've implemented a responsive design that makes most features adaptable to various screen sizes. We see potential for improvement in the features, particularly by enhancing the search function with filtering capabilities and expanding the sorting function with additional options.
 
 ## Testing
 
